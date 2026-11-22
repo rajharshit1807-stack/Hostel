@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HostelSync | Hostel Management Portal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="loginScreen" class="login-screen">
+    <div class="login-card">
+      <div class="brand-mark">H</div>
+      <div class="brand-name">HostelSync</div>
+      <p class="muted center">Smart Hostel Management &amp; Complaint Resolution System · Boys Hostel</p>
+      <div class="role-switch">
+        <button class="role-btn active" data-role="student">Student</button>
+        <button class="role-btn" data-role="warden">Warden</button>
+      </div>
+      <form id="loginForm">
+        <label id="loginIdLabel" for="loginId">Student ID</label>
+        <input id="loginId" autocomplete="username" placeholder="Enter your student ID" required>
+        <div id="passwordWrap">
+          <label for="loginPassword">Password</label>
+          <input id="loginPassword" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+        </div>
+        <button class="primary-btn full" type="submit">Continue to portal</button>
+        <p id="loginError" class="form-error"></p>
+      </form>
+      <div id="registerToggle" class="register-toggle">New student? <button type="button" id="showRegister">Create an account</button></div>
+      <form id="registerForm" class="register-panel hidden">
+        <h3>Student Registration</h3>
+        <p class="inline-help">Create your account using your actual hostel details.</p>
+        <label for="regName">Full name</label><input id="regName" maxlength="60" required placeholder="Enter your full name">
+        <label for="regId">Student ID</label><input id="regId" maxlength="20" required placeholder="Enter your college student ID">
+        <label for="regRoom">Room number</label><select id="regRoom" required></select>
+        <label for="regPassword">Create password</label><input id="regPassword" type="password" minlength="8" autocomplete="new-password" required placeholder="Create a password (minimum 8 characters)">
+        <label for="regConfirmPassword">Confirm password</label><input id="regConfirmPassword" type="password" minlength="8" autocomplete="new-password" required placeholder="Re-enter your password">
+        <button class="primary-btn full" type="submit">Create student account</button>
+        <p id="registerError" class="form-error"></p>
+        <button type="button" class="text-btn" id="hideRegister">Back to login</button>
+      </form>
+      <div id="credentialResult" class="credential-result hidden" aria-live="polite"></div>
+      <div class="demo-note">
+        <strong>Local UI demonstration</strong>
+        <span>For residents of the all-boys hostel. Students can create their own account and password.</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="app" class="app hidden">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-mark small">H</div>
+        <div><strong>HostelSync</strong><small id="sidebarRole">Student Portal</small></div>
+      </div>
+      <div class="nav-label">WORKSPACE</div>
+      <nav id="sidebarNav"></nav>
+      <div class="sidebar-bottom">
+        <div class="connection-dot"></div>
+        <span>Local demo mode</span>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">SMART HOSTEL MANAGEMENT</div>
+          <div id="topbarTitle" class="topbar-title">Dashboard</div>
+        </div>
+        <div class="topbar-right">
+          <span id="demoBadge" class="demo-badge">DEMO DATA</span>
+          <div class="user-chip">
+            <div class="avatar" id="userAvatar">S</div>
+            <div><strong id="userName">Student</strong><small id="userMeta">Student Portal</small></div>
+          </div>
+          <button id="logoutBtn" class="logout-btn">Log out</button>
+        </div>
+      </header>
+      <section id="pageContent" class="page-content"></section>
+      <footer class="app-footer">HostelSync · Academic PBL Prototype · Data shown in this version is stored locally in this browser.</footer>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
